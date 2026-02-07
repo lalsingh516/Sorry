@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sorry Bela Jiji</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #f2f2f2, #d6d6d6);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', sans-serif;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        padding: 30px;
+        max-width: 360px;
+        text-align: center;
+        border-radius: 18px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        animation: popIn 0.9s ease;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 24px;
+        color: #444;
+        animation: subtlePulse 2.5s infinite;
+    }
+
+    p {
+        margin-top: 15px;
+        font-size: 16px;
+        color: #333;
+        line-height: 1.6;
+        animation: fadeIn 1.5s ease;
+    }
+
+    button {
+        margin-top: 22px;
+        padding: 12px 26px;
+        border: none;
+        border-radius: 30px;
+        background: #555;
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #333;
+        transform: scale(1.05);
+    }
+
+    @keyframes popIn {
+        from { transform: scale(0.6); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes subtlePulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.03); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Sorry Bela Jiji</h1>
+    <p>
+        Mujhse jo bhi galti hui,<br>
+        uske liye dil se maafi chahta hoon.<br>
+        Mera intention kabhi galat nahi tha.<br>
+        Asha karta hoon aap mujhe samjhongi.
+    </p>
+
+    <button onclick="showMessage()">Maaf Kar Dijiye</button>
+</div>
+
+<script>
+    function showMessage() {
+        alert("Bela Jiji, main sach mein apni galti maanta hoon.");
+    }
+</script>
+
+</body>
+</html>
