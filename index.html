@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <title>Sorry Bela Jiji</title>
@@ -9,32 +9,110 @@
     body {
         margin: 0;
         height: 100vh;
-        background: linear-gradient(135deg, #f2f2f2, #d6d6d6);
+        background: linear-gradient(135deg, #e3f2fd, #fce4ec);
         display: flex;
         justify-content: center;
         align-items: center;
         font-family: 'Segoe UI', sans-serif;
-        overflow: hidden;
     }
 
     .card {
-        background: white;
-        padding: 30px;
-        max-width: 360px;
+        background: #ffffff;
+        padding: 32px;
+        max-width: 380px;
         text-align: center;
-        border-radius: 18px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        border-radius: 20px;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         animation: popIn 0.9s ease;
     }
 
     h1 {
         margin: 0;
-        font-size: 24px;
-        color: #444;
+        font-size: 26px;
+        color: #37474f;
         animation: subtlePulse 2.5s infinite;
     }
 
     p {
+        margin-top: 18px;
+        font-size: 16px;
+        color: #424242;
+        line-height: 1.7;
+        animation: fadeIn 1.6s ease;
+    }
+
+    button {
+        margin-top: 26px;
+        padding: 13px 30px;
+        border: none;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #546e7a, #263238);
+        color: white;
+        font-size: 15px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.06);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+
+    @keyframes popIn {
+        from { transform: scale(0.6); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes subtlePulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.04); }
+    }
+</style>
+</head>
+
+<body onload="playStartMusic()">
+
+<!-- Audio -->
+<audio id="startMusic" src="1.mp3"></audio>
+<audio id="clickMusic" src="2.mp3"></audio>
+
+<div class="card">
+    <h1>Sorry Bela Jiji</h1>
+    <p>
+        Mujhse jo bhi galti hui,<br>
+        uske liye dil se maafi chahta hoon.<br>
+        Mera intention kabhi galat nahi tha.<br>
+        Asha karta hoon aap mujhe samjhongi.
+    </p>
+
+    <button onclick="playClickMusic()">Maaf Kar Dijiye</button>
+</div>
+
+<script>
+    function playStartMusic() {
+        const music = document.getElementById("startMusic");
+        music.volume = 0.6;
+        music.play().catch(() => {
+            // mobile browser block handle
+            console.log("Autoplay blocked until user interaction");
+        });
+    }
+
+    function playClickMusic() {
+        const clickSound = document.getElementById("clickMusic");
+        clickSound.volume = 0.8;
+        clickSound.play();
+        alert("Bela Jiji, main sach mein apni galti maanta hoon.");
+    }
+</script>
+
+</body>
+</html>    p {
         margin-top: 15px;
         font-size: 16px;
         color: #333;
