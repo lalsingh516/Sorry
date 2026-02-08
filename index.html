@@ -12,52 +12,72 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(135deg, #e8edf2, #d3dce6);
+        background: linear-gradient(135deg, #eef2f7, #f7e9ec);
         font-family: Arial, sans-serif;
+        animation: bgFade 4s ease-in-out infinite alternate;
     }
 
     .card {
         background: #ffffff;
-        padding: 30px;
+        padding: 32px;
         width: 90%;
         max-width: 380px;
         text-align: center;
-        border-radius: 16px;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-        animation: scaleIn 0.8s ease;
+        border-radius: 18px;
+        box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+        animation: softFloat 3s ease-in-out infinite;
     }
 
     h1 {
         margin: 0;
-        font-size: 24px;
-        color: #37474f;
+        font-size: 25px;
+        color: #3f4a56;
+        animation: textFade 2s ease;
     }
 
     p {
-        margin-top: 16px;
+        margin-top: 18px;
         font-size: 15px;
-        color: #424242;
-        line-height: 1.6;
+        color: #4a4a4a;
+        line-height: 1.7;
+        animation: textFade 3s ease;
     }
 
     button {
-        margin-top: 24px;
-        padding: 12px 28px;
+        margin-top: 26px;
+        padding: 13px 30px;
         border: none;
-        border-radius: 25px;
-        background: #455a64;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #6c7a89, #4b5d67);
         color: #fff;
         font-size: 14px;
         cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     }
 
     button:active {
-        transform: scale(0.96);
+        transform: scale(0.95);
     }
 
-    @keyframes scaleIn {
-        from { transform: scale(0.7); opacity: 0; }
-        to { transform: scale(1); opacity: 1; }
+    @keyframes softFloat {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+        100% { transform: translateY(0); }
+    }
+
+    @keyframes textFade {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bgFade {
+        from { filter: brightness(1); }
+        to { filter: brightness(1.04); }
     }
 </style>
 </head>
@@ -81,21 +101,21 @@
 </div>
 
 <script>
-    // Page start music (works after first touch on mobile)
+    // Start music after first user touch (mobile safe)
     document.body.addEventListener("click", function startOnce() {
         const audio = document.getElementById("startAudio");
-        audio.volume = 0.6;
+        audio.volume = 0.5;
         audio.play();
         document.body.removeEventListener("click", startOnce);
     });
 
     function handleClick() {
         const sound = document.getElementById("clickAudio");
-        sound.volume = 0.8;
+        sound.volume = 0.7;
         sound.play();
         alert("Bela Jiji, main apni galti maanta hoon.");
     }
 </script>
 
 </body>
-</html>
+    </html>
